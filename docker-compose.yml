@@ -4,3 +4,9 @@ services:
     image: app
     ports:
       - 3000:80
+
+  api:
+    build: ./api
+    image: api
+    ports:
+      - 5000:80

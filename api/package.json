@@ -4,7 +4,8 @@
   "description": "",
   "module": "src/main.ts",
   "scripts": {
-    "build": "npx tsc",
+    "build": "etsc",
+    "preview": "node dist/main.js",
     "dev": "npx ts-node-dev --respawn src/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "echo linting",
@@ -24,6 +25,8 @@
     "@types/node": "^18.14.2",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
+    "esbuild": "^0.17.10",
+    "esbuild-node-tsc": "^2.0.5",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
