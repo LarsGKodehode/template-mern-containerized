@@ -1,0 +1,6 @@
+services:
+  app:
+    build: ./app
+    image: app
+    ports:
+      - 3000:80
