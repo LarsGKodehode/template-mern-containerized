@@ -2,9 +2,8 @@ FROM node:19 AS build
 WORKDIR /app
 COPY package* yarn.lock ./
 RUN yarn install
-COPY public ./public
-COPY src ./src
+COPY . .
 RUN yarn run build
 
 FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
