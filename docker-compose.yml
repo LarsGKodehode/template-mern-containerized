@@ -13,12 +13,12 @@ services:
     build: ./api
     image: api
     environment:
-      - MONGODB_URI=db_mongo://db_mongo:db_mongo:27017/db_mongo
+      - MONGODB_URI=db_mongo:27017
     networks:
       - frontend
       - database
-    expose:
-      - 3000
+    ports:
+      - 30000:3000
     depends_on:
       - db_mongo
 
