@@ -2,26 +2,39 @@ services:
   app:
     build: ./app
     image: app
+    networks:
+      - frontend
     ports:
       - 3000:80
+    depends_on:
+      - api
 
   api:
     build: ./api
     image: api
-    ports:
-      - 5000:80
     environment:
       - MONGODB_URI=db_mongo://db_mongo:db_mongo:27017/db_mongo
+    networks:
+      - frontend
+      - database
+    expose:
+      - 3000
     depends_on:
-      - db_nosql
+      - db_mongo
 
   db_mongo:
     image: mongo
-    expose:
-      - 27017
     restart: always
     environment:
       - MONGO_INITDB_ROOT_USERNAME=foomin
       - MONGO_INITDB_ROOT_PASSWORD=foobar
+    networks:
+      - database
+    expose:
+      - 27017
     volumes:
       - ./data:/data/db
+
+networks:
+  database:
+  frontend:
