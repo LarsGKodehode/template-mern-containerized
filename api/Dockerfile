@@ -10,4 +10,4 @@ COPY --from=build /app/package* /app/yarn.lock ./
 RUN yarn install --production
 COPY --from=build /app/dist .
 EXPOSE 80
-CMD ["node", "main.js"]
+CMD ["yarn", "run", "production:start"]

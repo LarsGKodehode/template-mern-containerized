@@ -11,7 +11,8 @@
     "lint": "echo linting",
     "lint:format": "echo foramtting",
     "lint:lint": "echo linting",
-    "typecheck": "echo typechecking"
+    "typecheck": "echo typechecking",
+    "production:start": "node main.js"
   },
   "keywords": [],
   "author": "",
