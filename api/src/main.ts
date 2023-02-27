@@ -1,15 +1,15 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import * as db from './db'
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
-const DB_URI = process.env.MONGODB_URI || null;
 
-if (typeof DB_URI === 'string') {
-  fetch('http://' + DB_URI).then(() => console.log('DB connection is live'))
-}
+db.connect(app)
+
+
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Express + TypeScript Server.');

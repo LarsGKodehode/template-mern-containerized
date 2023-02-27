@@ -13,7 +13,7 @@ services:
     build: ./api
     image: api
     environment:
-      - MONGODB_URI=db_mongo:27017
+      - MONGODB_URI=mongodb://db_mongo:27017
     networks:
       - frontend
       - database
